@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.ksa.httpcontroller.core.controller.ApplicationController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -36,14 +35,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" text="Action1" />
-            <Button mnemonicParsing="false" text="Action2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Action3" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" text="Action4" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="Action5" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" text="Action6" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" text="Action7" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" text="Action8" GridPane.rowIndex="7" />
+            <Button fx:id="action1" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onClickAction1" text="Action1" />
+            <Button fx:id="action2" mnemonicParsing="false" onAction="#onClickAction2" text="Action2" GridPane.rowIndex="1" />
+            <Button fx:id="action3" mnemonicParsing="false" onAction="#onClickAction3" text="Action3" GridPane.rowIndex="2" />
+            <Button fx:id="action4" mnemonicParsing="false" onAction="#onClickAction4" text="Action4" GridPane.rowIndex="3" />
+            <Button fx:id="action5" mnemonicParsing="false" onAction="#onClickAction5" text="Action5" GridPane.rowIndex="4" />
+            <Button fx:id="action6" mnemonicParsing="false" onAction="#onClickAction6" text="Action6" GridPane.rowIndex="5" />
+            <Button fx:id="action7" mnemonicParsing="false" onAction="#onClickAction7" text="Action7" GridPane.rowIndex="6" />
+            <Button fx:id="action8" mnemonicParsing="false" onAction="#onClickAction8" text="Action8" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </center>

@@ -24,6 +24,11 @@
             <artifactId>spring-context</artifactId>
             <version>${project.spring}</version>
         </dependency>
+        <dependency>
+            <groupId>javafx.dialogs</groupId>
+            <artifactId>dialogs</artifactId>
+            <version>0.0.4</version>
+        </dependency>
     </dependencies>
 
 
@@ -31,11 +36,35 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>install-external</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>/home/srg/Downloads/javafx-dialogs-0.0.4.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>javafx.dialogs</groupId>
+                            <artifactId>dialogs</artifactId>
+                            <version>0.0.4</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>${project.java}</source>
-                    <target>${project.java}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <fork>true</fork>
                 </configuration>
             </plugin>
