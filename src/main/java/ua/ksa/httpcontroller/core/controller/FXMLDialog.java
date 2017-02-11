@@ -17,6 +17,10 @@ import java.net.URL;
  * Created by srg on 2/7/17.
  */
 public class FXMLDialog extends Stage {
+
+    public FXMLDialog() {
+    }
+
     public FXMLDialog(DialogController controller, URL fxml, Window owner) {
         this(controller, fxml, owner, StageStyle.DECORATED);
     }

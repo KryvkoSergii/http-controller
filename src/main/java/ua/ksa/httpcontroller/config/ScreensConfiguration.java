@@ -10,6 +10,7 @@ import ua.ksa.httpcontroller.JavaFXMain;
 import ua.ksa.httpcontroller.core.controller.ApplicationController;
 import ua.ksa.httpcontroller.core.controller.FXMLDialog;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 /**
@@ -21,8 +22,6 @@ import java.io.IOException;
 @PropertySource("classpath:application.properties")
 public class ScreensConfiguration {
     private Stage primaryStage;
-//    @Autowired
-//    private ApplicationContext context;
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;

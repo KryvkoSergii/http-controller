@@ -19,6 +19,8 @@ import java.nio.charset.Charset;
 public class Sender {
     @Autowired
     private Environment env;
+    @Autowired
+    private SettingsUtil settingsUtil;
 
     public void makeRequest(String action, String body) throws Exception {
         URL url = new URL(buildURL(action));
@@ -36,11 +38,11 @@ public class Sender {
         connection.disconnect();
     }
 
-    private String buildURL(String action){
-        return env.getProperty(action.concat(".url"));
+    private String buildURL(String action) {
+        return settingsUtil.getSettings().getHost() + env.getProperty(action.concat(".url"));
     }
 
-    private String getMethod(String method){
+    private String getMethod(String method) {
         return env.getProperty(method.concat(".method"));
     }
 }

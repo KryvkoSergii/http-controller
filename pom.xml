@@ -24,39 +24,44 @@
             <artifactId>spring-context</artifactId>
             <version>${project.spring}</version>
         </dependency>
-        <dependency>
-            <groupId>javafx.dialogs</groupId>
-            <artifactId>dialogs</artifactId>
-            <version>0.0.4</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javafx.dialogs</groupId>-->
+            <!--<artifactId>dialogs</artifactId>-->
+            <!--<version>0.0.4</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.controlsfx</groupId>-->
+            <!--<artifactId>controlsfx</artifactId>-->
+            <!--<version>8.40.12</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-                <executions>
-                    <execution>
-                        <id>install-external</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <file>/home/srg/Downloads/javafx-dialogs-0.0.4.jar</file>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>javafx.dialogs</groupId>
-                            <artifactId>dialogs</artifactId>
-                            <version>0.0.4</version>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-install-plugin</artifactId>-->
+                <!--<version>2.5.2</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>install-external</id>-->
+                        <!--<phase>clean</phase>-->
+                        <!--<configuration>-->
+                            <!--<file>/home/srg/Downloads/javafx-dialogs-0.0.4.jar</file>-->
+                            <!--<repositoryLayout>default</repositoryLayout>-->
+                            <!--<groupId>javafx.dialogs</groupId>-->
+                            <!--<artifactId>dialogs</artifactId>-->
+                            <!--<version>0.0.4</version>-->
+                            <!--<packaging>jar</packaging>-->
+                            <!--<generatePom>true</generatePom>-->
+                        <!--</configuration>-->
+                        <!--<goals>-->
+                            <!--<goal>install-file</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
