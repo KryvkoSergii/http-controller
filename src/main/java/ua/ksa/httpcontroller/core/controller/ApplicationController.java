@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import ua.ksa.httpcontroller.core.util.Sender;
@@ -28,6 +29,7 @@ import java.util.stream.Collectors;
  * Created by srg on 2/6/17.
  */
 public class ApplicationController implements DialogController {
+    private static final Logger logger = Logger.getLogger(ApplicationController.class);
     @Autowired
     private Environment env;
     @Autowired
@@ -65,6 +67,7 @@ public class ApplicationController implements DialogController {
     //Methods
     @PostConstruct
     private void init() {
+        logger.info("INITIALIZED");
     }
 
     @FXML
@@ -92,6 +95,7 @@ public class ApplicationController implements DialogController {
         }
         address.setText(settingsUtil.getSettings().getHost());
         address.textProperty().addListener((observable, oldValue, newValue) -> settingsUtil.getSettings().setHost(newValue));
+        logger.info("FXML INITIALIZED");
     }
 
     @FXML
@@ -99,6 +103,7 @@ public class ApplicationController implements DialogController {
         String action = "action1";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -109,6 +114,7 @@ public class ApplicationController implements DialogController {
         String action = "action2";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -119,6 +125,7 @@ public class ApplicationController implements DialogController {
         String action = "action3";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -129,6 +136,7 @@ public class ApplicationController implements DialogController {
         String action = "action4";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -139,6 +147,7 @@ public class ApplicationController implements DialogController {
         String action = "action5";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -149,6 +158,7 @@ public class ApplicationController implements DialogController {
         String action = "action6";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -159,6 +169,7 @@ public class ApplicationController implements DialogController {
         String action = "action7";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
@@ -169,13 +180,14 @@ public class ApplicationController implements DialogController {
         String action = "action8";
         try {
             sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
         } catch (Exception e) {
             showExpandExceptionDialog(action, e);
         }
     }
 
     @FXML
-    public void onClose(){
+    public void onClose() {
         Platform.exit();
     }
 
@@ -207,11 +219,13 @@ public class ApplicationController implements DialogController {
         // Create expandable Exception.
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
-        pw.write("Thrown during requesting URL=" +
+        String s = "Thrown during requesting URL=" +
                 settingsUtil.getSettings().getHost() +
-                env.getProperty(action.concat(".url")) + '\n');
+                env.getProperty(action.concat(".url")) + '\n';
+        pw.write(s);
         e.printStackTrace(pw);
         String exceptionText = sw.toString();
+        logger.debug(s, e);
 
         Label label = new Label("The exception stacktrace was:");
 

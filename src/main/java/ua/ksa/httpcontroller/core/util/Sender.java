@@ -1,10 +1,12 @@
 package ua.ksa.httpcontroller.core.util;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Description;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -21,6 +23,12 @@ public class Sender {
     private Environment env;
     @Autowired
     private SettingsUtil settingsUtil;
+    private static final Logger logger = Logger.getLogger(Sender.class);
+
+    @PostConstruct
+    private void init() {
+        logger.info("INITIALIZED");
+    }
 
     public void makeRequest(String action, String body) throws Exception {
         URL url = new URL(buildURL(action));
@@ -35,10 +43,11 @@ public class Sender {
             bw.flush();
             bw.close();
         }
+        logger.debug("Request=" + url.toURI() + " returned code=" + connection.getResponseCode());
         connection.disconnect();
     }
 
-    private String buildURL(String action) {
+    public String buildURL(String action) {
         return settingsUtil.getSettings().getHost() + env.getProperty(action.concat(".url"));
     }
 
