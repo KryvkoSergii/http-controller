@@ -92,21 +92,18 @@ public class ApplicationController implements DialogController {
         double width = 135;
         Class aClass = getClass();
         Field classField;
-        String buttonFieldName, fromEnv;
+        String fromEnv;
         List<Field> fields = Arrays.asList(aClass.getDeclaredFields()).stream().filter(e -> e.getName().contains("action")).collect(Collectors.<Field>toList());
         Collections.sort(fields, new CompareFields());
         for (int i = 1; i <= fields.size(); i++) {
             classField = fields.get(i - 1);
-            buttonFieldName = "action" + i;
-            fromEnv = env.getProperty(buttonFieldName + ".name");
-            if (classField.getName().equals(buttonFieldName) && fromEnv != null) {
-                try {
-                    Button button = (Button) classField.get(this);
-                    button.setText(fromEnv);
-                    button.setPrefWidth(width);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+            fromEnv = env.getProperty(classField.getName() + ".name");
+            try {
+                Button button = (Button) classField.get(this);
+                button.setText(fromEnv);
+                button.setPrefWidth(width);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
         address.setText(settingsUtil.getSettings().getHost());
