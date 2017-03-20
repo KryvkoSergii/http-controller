@@ -35,7 +35,7 @@ public class Sender {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(getMethod(action));
         connection.setDoOutput(body != null ? true : false);
-        connection.setDoInput(false);
+        connection.setDoInput(true);
         connection.connect();
         if (body != null) {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream(), Charset.forName("UTF-8")));

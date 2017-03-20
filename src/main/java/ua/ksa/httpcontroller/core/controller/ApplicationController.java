@@ -53,6 +53,22 @@ public class ApplicationController implements DialogController {
     @FXML
     public Button action8;
     @FXML
+    public Button action9;
+    @FXML
+    public Button action10;
+    @FXML
+    public Button action11;
+    @FXML
+    public Button action12;
+    @FXML
+    public Button action13;
+    @FXML
+    public Button action14;
+    @FXML
+    public Button action15;
+    @FXML
+    public Button action16;
+    @FXML
     public TextField address;
     private FXMLDialog dialog;
 
@@ -73,7 +89,7 @@ public class ApplicationController implements DialogController {
     @FXML
     private void initialize() {
         ((Stage) dialog.getOwner()).setTitle("HTTP controller");
-        double width = 120;
+        double width = 135;
         Class aClass = getClass();
         Field classField;
         String buttonFieldName, fromEnv;
@@ -178,6 +194,94 @@ public class ApplicationController implements DialogController {
     @FXML
     public void onClickAction8() {
         String action = "action8";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction9() {
+        String action = "action9";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction10() {
+        String action = "action10";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction11() {
+        String action = "action11";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction12() {
+        String action = "action12";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction13() {
+        String action = "action13";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction14() {
+        String action = "action14";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction15() {
+        String action = "action15";
+        try {
+            sender.makeRequest(action, null);
+            logger.debug("Request=" + sender.buildURL(action) + " successful");
+        } catch (Exception e) {
+            showExpandExceptionDialog(action, e);
+        }
+    }
+
+    @FXML
+    public void onClickAction16() {
+        String action = "action16";
         try {
             sender.makeRequest(action, null);
             logger.debug("Request=" + sender.buildURL(action) + " successful");
